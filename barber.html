@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Williams Exclusive | Barbería</title>
+
+  <meta name="description" content="Williams Exclusive — Barbería en Ocumare del Tuy, Miranda. Cortes, barba y servicios de barbería.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f1d77a;
+      --black: #080808;
+      --dark: #111111;
+      --gray: #a7a7a7;
+      --white: #ffffff;
+    }
+
+    /* HEADER */
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 22px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(212,175,55,.13), transparent 35%),
+        linear-gradient(180deg, #050505, #0b0b0b);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(212,175,55,.15);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(212,175,55,.10);
+      border-radius: 50%;
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .brand-small {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(48px, 14vw, 100px);
+      line-height: .95;
+      letter-spacing: -3px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      max-width: 520px;
+      color: #cfcfcf;
+      margin-top: 25px;
+      font-size: 17px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-line {
+      width: 65px;
+      height: 2px;
+      background: var(--gold);
+      margin: 28px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 15px 28px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      transition: .3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-button:hover {
+      background: var(--gold);
+      color: #000;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 8vw, 55px);
+      line-height: 1.1;
+      margin-bottom: 45px;
+    }
+
+    /* SERVICES */
+    .services {
+      background: #0d0d0d;
+      max-width: none;
+    }
+
+    .services-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: #151515;
+      border: 1px solid #292929;
+      padding: 32px 24px;
+      position: relative;
+      transition: transform .3s, border .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .service-number {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .service-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      margin: 25px 0 10px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 14px;
+      min-height: 48px;
+    }
+
+    .price {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #303030;
+      color: var(--gold-light);
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* HORARIO */
+    .schedule {
+      text-align: center;
+    }
+
+    .schedule-box {
+      max-width: 650px;
+      margin: auto;
+      padding: 40px 25px;
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .schedule-time {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 8vw, 55px);
+      color: white;
+    }
+
+    .schedule-note {
+      color: var(--gray);
+      margin-top: 12px;
+    }
+
+    /* LOCATION */
+    .location {
+      background: #0d0d0d;
+      max-width: none;
+    }
+
+    .location-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .location-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid #292929;
+      background: #121212;
+    }
+
+    .location-info {
+      padding: 40px;
+    }
+
+    .location-info h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .address {
+      color: #d0d0d0;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .directions-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 25px;
+      background: var(--gold);
+      color: #050505;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      transition: .3s;
+    }
+
+    .directions-button:hover {
+      background: var(--gold-light);
+    }
+
+    .location-visual {
+      min-height: 300px;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.65)),
+        radial-gradient(circle at center, #292929, #080808);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .location-visual-content {
+      border: 1px solid rgba(212,175,55,.5);
+      padding: 35px 25px;
+      max-width: 300px;
+    }
+
+    .location-visual-content strong {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .location-visual-content p {
+      color: #ddd;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* GALERÍA */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1;
+      background:
+        linear-gradient(135deg, #1d1d1d, #090909);
+      border: 1px solid #292929;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-item::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(212,175,55,.2);
+    }
+
+    .gallery-placeholder {
+      color: #777;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      z-index: 1;
+    }
+
+    /*
+      Para poner tus fotos:
+      reemplaza el contenido de cada .gallery-item por:
+
+      <img src="foto1.jpg" alt="Trabajo de barbería">
+    */
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+
+    /* WHATSAPP */
+    .booking {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(212,175,55,.09), transparent 55%);
+    }
+
+    .booking-text {
+      max-width: 600px;
+      margin: -25px auto 30px;
+      color: var(--gray);
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: min(100%, 450px);
+      padding: 20px 25px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: .3s;
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+    }
+
+    .whatsapp-icon {
+      font-size: 24px;
+    }
+
+    .contact-warning {
+      color: #666;
+      font-size: 11px;
+      margin-top: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #222;
+      padding: 35px 20px;
+      text-align: center;
+      background: #050505;
+    }
+
+    footer strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+    }
+
+    footer p {
+      color: #666;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 750px) {
+
+      section {
+        padding: 65px 18px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-card {
+        grid-template-columns: 1fr;
+      }
+
+      .location-visual {
+        min-height: 240px;
+      }
+
+      .location-info {
+        padding: 30px 24px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .service-card {
+        padding: 27px 22px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header id="inicio">
+
+    <div class="brand-small">Barbería Premium</div>
+
+    <h1>
+      WILLIAMS<br>
+      <span>EXCLUSIVE</span>
+    </h1>
+
+    <div class="hero-line"></div>
+
+    <p class="hero-subtitle">
+      Estilo, precisión y personalidad.
+      Tu próximo look empieza aquí.
+    </p>
+
+    <a href="#servicios" class="hero-button">
+      Ver servicios
+    </a>
+
+  </header>
+
+
+  <!-- SERVICIOS -->
+  <section class="services" id="servicios">
+
+    <div class="services-inner">
+
+      <div class="section-label">Nuestros servicios</div>
+
+      <h2 class="section-title">
+        Tu estilo.<br>
+        Tu presencia.
+      </h2>
+
+      <div class="service-grid">
+
+        <article class="service-card">
+          <div class="service-number">01 / CORTE</div>
+
+          <h3>Corte</h3>
+
+          <p>
+            Un corte trabajado con precisión
+            para complementar tu estilo.
+          </p>
+
+          <div class="price">
+            Desde $5
+          </div>
+        </article>
+
+
+        <article class="service-card">
+          <div class="service-number">02 / BARBA</div>
+
+          <h3>Barba</h3>
+
+          <p>
+            Perfilado y cuidado para una
+            apariencia limpia y definida.
+          </p>
+
+          <div class="price">
+            Desde $5
+          </div>
+        </article>
+
+
+        <article class="service-card">
+          <div class="service-number">03 / COMBO</div>
+
+          <h3>Corte + Barba</h3>
+
+          <p>
+            El servicio completo para renovar
+            tu imagen de principio a fin.
+          </p>
+
+          <div class="price">
+            Desde $5
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- HORARIO -->
+  <section class="schedule">
+
+    <div class="section-label">Horario de atención</div>
+
+    <h2 class="section-title">
+      Estamos listos<br>
+      para recibirte.
+    </h2>
+
+    <div class="schedule-box">
+
+      <div class="schedule-time">
+        9:00 AM — 7:00 PM
+      </div>
+
+      <p class="schedule-note">
+        Horario de atención
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- UBICACIÓN -->
+  <section class="location" id="ubicacion">
+
+    <div class="location-inner">
+
+      <div class="section-label">Dónde encontrarnos</div>
+
+      <h2 class="section-title">
+        Visítanos.
+      </h2>
+
+      <div class="location-card">
+
+        <div class="location-info">
+
+          <h3>Williams Exclusive</h3>
+
+          <p class="address">
+            Venezuela<br>
+            Estado Miranda<br>
+            Ocumare del Tuy<br>
+            Plaza Bolívar<br>
+            Calle Urdaneta<br>
+            Edificio de 4 pisos<br>
+            Entra y llega al primer piso.<br>
+            Toca el timbre.
+          </p>
+
+          <a
+            class="directions-button"
+            href="https://www.google.com/maps/search/?api=1&query=Plaza+Bolivar,+Calle+Urdaneta,+Ocumare+del+Tuy,+Miranda,+Venezuela"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cómo llegar
+          </a>
+
+        </div>
+
+        <div class="location-visual">
+
+          <div class="location-visual-content">
+
+            <strong>Ocumare del Tuy</strong>
+
+            <p>
+              Plaza Bolívar<br>
+              Calle Urdaneta<br><br>
+              Primer piso<br>
+              Toca el timbre
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALERÍA -->
+  <section id="trabajos">
+
+    <div class="section-label">Nuestro trabajo</div>
+
+    <h2 class="section-title">
+      Resultados que<br>
+      hablan por sí solos.
+    </h2>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <span class="gallery-placeholder">
+          Foto 01
+        </span>
+      </div>
+
+      <div class="gallery-item">
+        <span class="gallery-placeholder">
+          Foto 02
+        </span>
+      </div>
+
+      <div class="gallery-item">
+        <span class="gallery-placeholder">
+          Foto 03
+        </span>
+      </div>
+
+      <div class="gallery-item">
+        <span class="gallery-placeholder">
+          Foto 04
+        </span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RESERVA -->
+  <section class="booking">
+
+    <div class="section-label">Agenda tu cita</div>
+
+    <h2 class="section-title">
+      Tu próximo corte<br>
+      empieza con un mensaje.
+    </h2>
+
+    <p class="booking-text">
+      Escríbenos por WhatsApp para consultar disponibilidad
+      y agendar tu cita.
+    </p>
+
+    <!--
+      IMPORTANTE:
+      No se coloca ningún número inventado.
+      Cuando tengas el número de WhatsApp de la barbería,
+      cambia SOLO el href de abajo por:
+
+      https://wa.me/TUNUMERO
+
+      Ejemplo de formato:
+      https://wa.me/584121234567
+
+      sin +, espacios ni guiones.
+    -->
+
+    <a
+      href="#"
+      class="whatsapp-button"
+      id="whatsappButton"
+    >
+      <span class="whatsapp-icon">◉</span>
+      AGENDAR CITA POR WHATSAPP
+    </a>
+
+    <p class="contact-warning">
+      Configura el número de WhatsApp de la barbería antes de publicar.
+    </p>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <strong>WILLIAMS EXCLUSIVE</strong>
+
+    <p>
+      Barbería · Ocumare del Tuy · Miranda · Venezuela
+    </p>
+
+  </footer>
+
+
+  <script>
+    // Evita que el botón de WhatsApp lleve a una página vacía
+    // mientras todavía no se haya colocado el número real.
+
+    const whatsappButton = document.getElementById("whatsappButton");
+
+    whatsappButton.addEventListener("click", function(event) {
+
+      if (this.getAttribute("href") === "#") {
+        event.preventDefault();
+
+        alert(
+          "Primero agrega el número real de WhatsApp de Williams Exclusive en el código HTML."
+        );
+      }
+
+    });
+  </script>
+
+</body>
+</html>
